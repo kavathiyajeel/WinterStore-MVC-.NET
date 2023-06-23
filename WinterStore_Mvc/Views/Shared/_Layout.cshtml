@@ -1,0 +1,83 @@
+﻿
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    @*<link href="https://cdn.datatables.net/v/bs4/dt-1.13.4/fc-4.2.2/r-2.4.1/datatables.min.css" rel="stylesheet" />
+    <head>*@
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
+        <link href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.min.css" rel="stylesheet" />
+    
+
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark text-light">
+        <b>
+
+            @Html.ActionLink("WinterStore", "Index", "Home", new { area = "" }, new { @class = "nav-item text-light m-2", @style = "text-decoration: none;font-size:20px" })
+        </b>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="nav navbar-nav mr-auto">
+                <li>
+                    @Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-item text-light m-2", @style = "text-decoration: none;" })
+                </li>
+                <li class="nav-item">
+                    @Html.ActionLink("Products", "Index", "Product", new { area = "" }, new { @class = "nav-item text-light m-2", @style = "text-decoration: none;" })
+                </li>
+                <li class="nav-item">
+                    @Html.ActionLink("Customers", "Index", "Customer", new { area = "" }, new { @class = "nav-item text-light m-2", @style = "text-decoration: none;" })
+
+                </li>
+                @*<li class="nav-item">
+                    @Html.ActionLink("Orders", "Index", "Order", new { area = "" }, new { @class = "nav-item text-light m-2 ", @style = "text-decoration: none;" })
+
+                </li>*@
+                <li class="nav-item">
+                    @Html.ActionLink("Messages", "Index", "Issue", new { area = "" }, new { @class = "nav-item text-light m-2", @style = "text-decoration: none;" })
+
+                </li>
+
+
+            </ul>
+
+            <div class="form-inline">
+
+                <button class="btn btn-outline-warning m-2">
+                    <i class="bi bi-person-fill"></i><span class="ml-2 text-center mt-2">
+                        <i>
+                            Hello,<b>
+                                Admin
+                            </b>
+                        </i>
+                    </span>
+                </button>
+                @Html.ActionLink(" Logout", "Index", "Login", new { area = "" }, new { @class = " bi bi-box-arrow-right btn btn-outline-danger", @style = "text-decoration: none;" })
+
+            </div>
+        </div>
+
+    </nav>
+
+    <div class="container mt-5 mb-5">
+        @RenderBody()
+    </div>
+    <footer class="bg-dark w-100 text-center text-light" style="position: relative; bottom:0; height: 50px">
+        <h5 class="m-auto py-2">&copy; All Rights Reserved By WinterStore since 2022 - @DateTime.Now.Year</h5>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://cdn.datatables.net/v/bs4/dt-1.13.4/fc-4.2.2/r-2.4.1/datatables.min.js"></script>
+</body>
+</html>

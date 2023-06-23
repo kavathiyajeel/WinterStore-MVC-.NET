@@ -1,0 +1,49 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="text-center mt-2">
+    <hr style="height:2px;border-width:0;color:gray;background-color:gray" />
+    <h3>Features Admin Can Perform</h3>
+    <hr style="height:2px;border-width:0;color:gray;background-color:gray" />
+</div>
+
+<div class="container mt-2 mb-4" style="margin: auto;">
+    <div class="row py-5">
+        <div class="col-md-6 col-sm-12 col-lg-4 mt-2">
+            <div class="card h-100 ">
+                <img src="~/Content/Images/products.gif" class="card-img-top" alt="Products Section" />
+                <div class="card-body">
+                    <h5 class="card-title text-center">Products </h5>
+                </div>
+                @Html.ActionLink("Products", "Index", "Product", new { area = "" }, new { @class = "btn btn-outline-dark text-center w-50 m-auto" })
+                <br />
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-12 col-lg-4 mt-2">
+            <div class="card h-100">
+                <img src="~/Content/Images/user1.gif" class="card-img-top" alt="Customer Section" />
+                <div class="card-body">
+                    <h5 class="card-title text-center">Customers </h5>
+                </div>
+                @Html.ActionLink("Customers", "Index", "Customer", new { area = "" }, new { @class = "btn btn-outline-dark text-center w-50 m-auto" })
+                <br />
+            </div>
+        </div>
+     
+       
+        <div class="col-md-6 col-sm-12 col-lg-4 mt-2">
+            <div class="card h-100">
+                <img src="~/Content/Images/issue.gif" class="card-img-top" alt="message Section" />
+                <div class="card-body">
+                    <h5 class="card-title text-center">Messages</h5>
+                </div>
+                @Html.ActionLink("Messages", "Index", "Issue", new { area = "" }, new { @class = "btn btn-outline-dark text-center w-50 m-auto" })
+                <br />
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,38 @@
+﻿@using WinterStore_Mvc.Models
+@model IEnumerable<Issue>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <h1 style="text-align:center">All Issue</h1>
+    <table class="table table-dark">
+        <tr class="row m-2">
+            <th class="col">Id</th>
+            <th class="col">User Name</th>
+            <th class="col">Email</th>
+            <th class="col">Message</th>
+            <th class="col">Modile No</th>
+            <th class="col">Status</th>
+            <th class="col-md-3" colspan="2">Actions</th>
+        </tr>
+        @foreach (Issue item in Model)
+        {
+        <tr class="row m-2 ">
+            <td class="col">@item.IssueId</td>
+            <td class="col">@item.UserName</td>
+            <td class="col">@item.Email</td>
+            <td class="col">@item.Message</td>
+            <td class="col">@item.Mobile</td>
+            <td class="col">@item.status</td>
+            <td class="col-md-3" colspan="2">
+                <a class="btn btn-outline-warning m-1" href="@Url.Action("","Issue",new { id = item.IssueId })"><i class="bi bi-pencil mr-1"></i>Resolved</a>
+                <a class="btn btn-outline-danger m-1" href="@Url.Action("","Issue",new { id = item.IssueId })"><i class="bi bi-trash mr-1"></i>Delete</a>
+
+            </td>
+        </tr>
+        }
+    </table>
+</div>
+

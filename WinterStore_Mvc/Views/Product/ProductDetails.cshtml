@@ -1,0 +1,75 @@
+﻿@model WinterStore_Mvc.Models.Product
+@{
+    ViewBag.Title = "ProductDetails";
+    Layout = "~/Views/Shared/_Layout_User.cshtml";
+    int id = (int)Session["userid"];
+}
+
+
+
+<style>
+    .container-fluid {
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+        border-radius: 5px;
+    }
+</style>
+
+
+
+    <div class="container-fluid me-auto mt-5 rounded-4 shadow mb-5 bg-white " style="margin:auto ;width:100%;padding:83px 0px 84px 0px">
+        <table class="auto-style1">
+            <tr class="row">
+                <td class="col-md-4">
+               
+                    <img src="@Model.pimage" class="card-img-top ml-4 mt-2 mb-2" style="height:320px;width:250px;margin:auto" />
+                </td>
+                <td class="col-md-8">
+                    <table class="h-100">
+                        <tr class="row">
+                            <td class="col">
+                                <h4>
+                                    ProductDetails :
+
+
+                                </h4>
+                                <label class="card-title " style="font-size:x-large;font:bold">@Model.pname</label>
+
+                            </td>
+                        </tr>
+                        <tr class="row mt-auto">
+                            <td class="col">
+                                <label class="card-title" style="font-size:x-large;font:bold">Manufacturer :</label>
+                                <label class="card-title " style="font-size:medium;font:bold">@Model.pbrand</label>
+                            </td>
+
+                        </tr>
+                        <tr class="row mt-auto">
+                            <td class="col">
+                                <label class="card-title " style="font-size:medium;font:bold">@Model.pdesc</label>
+                            </td>
+                        </tr>
+                        <tr class="row mt-auto">
+
+                            <td class="col">
+                                <label class="control-label text-muted mr-2" style="font-size:medium;"><s>₹@Model.pmrp</s></label>
+                                <label class="control-label " style="font-weight:600;text-align:center;margin-bottom:auto">₹@Model.pprice</label>
+                            </td>
+                        </tr>
+                        <tr class="row mt-3">
+                            <td class="col-md-10">
+
+                                <a href="@Url.Action("Checkout","Checkout", new {@cid=id,@pid=Model.pid})" class="btn btn-success mr-3"><i class="bi bi-bag mr-2"></i>Buy Now</a>
+                                <a href="@Url.Action("AddtoCart", "Cart", new {@cid=id,@pid=Model.pid})" class="btn btn-warning  mr-3"><i class="bi bi-cart2 mr-2"></i>Add to Cart</a>
+
+                            </td>
+
+
+                        </tr>
+
+                    </table>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+

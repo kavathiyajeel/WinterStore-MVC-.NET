@@ -1,0 +1,145 @@
+﻿@model WinterStore_Mvc.Models.Product
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="text-center m-3"><i class="bi bi-pencil-square mr-2 col-md-1"></i>Edit Product</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal bg-dark py-3 text-light m-2" style="border-radius:5px">
+
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.pid)
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label class="control-label col-md-2">Product Name :</label>
+                    <div class="col">
+                        @Html.EditorFor(model => model.pname, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.pname, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label class="control-label col-md-2">Product Brand :</label>
+                    <div class="col">
+                        @Html.EditorFor(model => model.pbrand, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.pbrand, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="form-group">
+                    <label class="control-label col-md-2">Product Description :</label>
+                    <div class="col">
+                        @Html.EditorFor(model => model.pdesc, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.pdesc, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+        @*<div class="form-group">
+            @Html.LabelFor(model => model.pcategory, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-12">
+                @Html.EditorFor(model => model.pcategory, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.pcategory, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label class="control-label col-md-4">Product Category :</label>
+                <div class="col">
+                    @Html.EditorFor(model => model.pcategory, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.pcategory, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label class="control-label col-md-3">Ideal For :</label>
+                <div class="col">
+                    @Html.EditorFor(model => model.pidealfor, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.pidealfor, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="control-label col-md-4">Product Mrp :</label>
+                    <div class="col">
+                        @Html.EditorFor(model => model.pmrp, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.pmrp, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="control-label col-md-4">Product Price :</label>
+                    <div class="col">
+                        @Html.EditorFor(model => model.pprice, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.pprice, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label class="control-label col-md-6">Product Image (*jpeg/jpg png) :</label>
+                    <div class="col">
+                        @Html.EditorFor(model => model.pimage, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.pimage, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="control-label col-md-3">IsActive :</label>
+                    <div class="col">
+                        @Html.EditorFor(model => model.isActive, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.isActive, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-5 col-md-12" style="text-align:center">
+                <input type="submit" value="Update Product" class="btn btn-warning" />
+            </div>
+        </div>
+    </div>
+}
+@if (TempData["msg"] != null)
+{
+    <script>
+ alert('@TempData["msg"].ToString();'); window.location.href = "@Url.Action("Index","Product")";
+    </script>
+}
+
+<div>
+    <a class="btn btn-outline-danger" href="@Url.Action( "Index","Product")">Back To List</a>
+</div>
+
+

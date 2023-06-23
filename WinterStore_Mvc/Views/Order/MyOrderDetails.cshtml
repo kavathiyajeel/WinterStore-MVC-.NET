@@ -1,0 +1,144 @@
+﻿@using WinterStore_Mvc.Models
+@model IEnumerable<Order>
+
+
+@{
+    ViewBag.Title = "MyOrderDetails";
+    Layout = "~/Views/Shared/_Layout_User.cshtml";
+}
+
+@foreach (Order item in Model)
+{
+    <div class="container-fluid mt-2 shadow-lg bg-white rounded-4" style=" width: 100%; border: 2px solid black;">
+        <table class="table table-borderless" style="color:black;">
+
+            <tr class="row">
+                <td class="col">
+                    <h3 class="text-center"><i class="bi bi-clipboard-heart mr-2"></i>Order Details</h3>
+                </td>
+
+            </tr>
+            <tr class="row">
+                <td class="col" style="text-align: center">
+                    <label class="form-label" runat="server">Order ID :</label>
+                </td>
+                <td class="col" style="text-align: center">
+                    <asp:Label CssClass="form-control" ID="lbl_oid" ForeColor="green" runat="server" Text=""></asp:Label>
+                    <label class="form-label" style="color:green" runat="server">@item.OrderID</label>
+                </td>
+            </tr>
+
+            <tr class="row">
+                <td class="col" style="text-align: center">
+                    <label class="form-label" runat="server">Order Date :</label>
+                </td>
+                <td class="col" style="text-align: center">
+                    <asp:Label CssClass="form-control" ID="lbl_odate" runat="server" Text=""></asp:Label>
+                    <label class="form-label" runat="server">@item.OrderDate</label>
+                </td>
+
+            </tr>
+
+
+            <tr class="row">
+                <td class="col " style="text-align: center">
+                    <label class="form-label" runat="server">Customer Name :</label>
+                </td>
+                <td class="col " style="text-align: center">
+                    <label class="form-label" runat="server"></label>
+
+                </td>
+
+            </tr>
+
+
+            <tr class="row">
+                <td class="col " style="text-align: center">
+                    <label class="form-label" runat="server">Product Name :</label>
+                </td>
+                <td class="col " style="text-align: center">
+                    <label class="form-label" runat="server"></label>
+
+                </td>
+
+            </tr>
+
+            <tr class="row">
+                <td class="col " style="text-align: center">
+                    <label class="form-label" runat="server">Product Image :</label>
+                </td>
+                <td class="col" style="text-align: center">
+                    <img alt="Product picture" src="" style="width:100px; height:100px " />
+                </td>
+
+            </tr>
+
+            <tr class="row">
+                <td class="col " style="text-align: center">
+                    <label class="form-label" runat="server">Amount :</label>
+                </td>
+                <td class="col " style="text-align: center">
+                    <label class="form-label" runat="server">@item.OrderDate</label>
+
+                </td>
+
+            </tr>
+
+            <tr class="row">
+                <td class="col " style="text-align: center">
+                    <label class="form-label" runat="server">Address :</label>
+                </td>
+                <td class="col" style="text-align: center">
+
+                    <label class="form-label" runat="server">@item.OrderDate</label>
+
+                </td>
+
+            </tr>
+
+            <tr class="row">
+                <td class="col " style="text-align: center">
+                    <label class="form-label" runat="server">Payment Method :</label>
+                </td>
+                <td class="col" style="text-align: center">
+                    <label class="form-label" runat="server">@item.OrderDate</label>
+                </td>
+
+            </tr>
+
+            <tr class="row">
+                <td class="col " style="text-align: center">
+                    <label class="form-label" runat="server">Payment Status :</label>
+                </td>
+                <td class="col" style="text-align: center">
+                    <label class="form-label" runat="server">@item.OrderDate</label>
+                </td>
+
+            </tr>
+
+
+            <tr class="row">
+                <td class="col " style="text-align: center">
+                    <label class="form-label" runat="server">Transaction ID :</label>
+                </td>
+                <td class="col " style="text-align: center">
+                    <label class="form-label" runat="server">@item.OrderDate</label>
+                </td>
+
+            </tr>
+
+
+            <tr class="row">
+                <td class="col " style="text-align: center">
+                    <label class="form-label" runat="server">Order Status :</label>
+                </td>
+                <td class="col " style="text-align: center">
+                    <label class="form-label" runat="server">@item.OrderDate</label>
+                </td>
+
+            </tr>
+
+        </table>
+
+    </div>
+}

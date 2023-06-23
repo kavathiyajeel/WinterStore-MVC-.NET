@@ -1,0 +1,44 @@
+﻿@model List<WinterStore_Mvc.Models.CartProduct>
+@{
+    ViewBag.Title = "Cart";
+    Layout = "~/Views/Shared/_Layout_User.cshtml";
+    int id = (int)Session["userid"];
+    int i = 0;
+
+}
+
+<div class="container-fluid">
+    <h1 style="text-align:center;">Cart Items</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Product</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@{++i;}@i</td>
+                    <td>
+                        <img src="@Url.Content(item.ProductImage)" alt="@item.ProductName" width="50" height="50" />
+                      
+                    </td>
+                    <td>@item.ProductPrice</td>
+                    <td>@item.CartQuantity</td>
+                    <td>@(item.ProductPrice * item.CartQuantity)</td>
+                    <td>
+                    <a class="btn btn-outline-danger m-1" href="@Url.Action("Deleteitem","Cart",new {id = item.CartID})">Delete</a>
+
+
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    </div>

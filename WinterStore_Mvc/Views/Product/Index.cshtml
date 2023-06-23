@@ -1,0 +1,49 @@
+﻿
+@model IEnumerable<WinterStore_Mvc.Models.Product>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int count = 0;
+}
+
+<div class="container-fluid">
+    <h1 style="text-align:center;">Product Details</h1>
+    <a style="float:right" href="@Url.Action("AddProduct","Product")" class="btn btn-success m-3"> <i class="bi bi-plus mr-1"></i>Add New Product</a>
+    <table class="table text-center" id="Table" name="Table">
+        <thead>
+
+        <tr class="row m-2">
+            <th class="col">Id</th>
+            <th class="col">ProductName</th>
+            <th class="col">ProductBrand</th>
+            <th class="col">ProductPrice</th>
+           <th class="col">ProductImage</th>
+            <th class="col" colspan="2">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (WinterStore_Mvc.Models.Product item in Model)
+        {
+            <tr class="row m-2">
+                <td class="col">@item.pid</td>
+                <td class="col">@item.pname</td>
+                <td class="col">@item.pbrand</td>
+                <td class="col">@item.pprice</td>
+                <td class="col"><img alt="Product picture" src="@item.pimage" style="width:100px; height:100px " /></td>
+                <td class="col" colspan="2">
+                    <a class="btn btn-outline-warning m-1" href="@Url.Action("Edit","Product",new { id = item.pid })">Edit</a>
+                    <a class="btn btn-outline-danger m-1" href="@Url.Action("DeleteProduct","Product",new {id = item.pid})">Delete</a>
+
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+    <script>
+   $(document).ready(function () {
+      $('#Table').DataTable();
+   });
+    </script>
+
+
+</div>

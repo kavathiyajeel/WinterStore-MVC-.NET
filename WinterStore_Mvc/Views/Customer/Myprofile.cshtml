@@ -1,0 +1,84 @@
+﻿@model WinterStore_Mvc.Models.Customers
+
+@{
+    ViewBag.Title = "Myprofile";
+    Layout = "~/Views/Shared/_Layout_User.cshtml";
+    int id = (int)Session["userid"];
+}
+
+<h2 class="text-center"><i class="bi bi-person-fill mr-2 col-md-1"></i>Profile Details</h2>
+
+<div class="card-body  text-center px-5 py-5">
+    <div class="row mt-3">
+        <div class="col-md-12 col-lg-6 col-sm-12">
+            <label class="form-label">First Name :</label>
+        </div>
+        <div class="col-md-12 col-lg-6 col-sm-12" style="text-align: center">
+            <h6>@Model.CustomerFirstName</h6>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-md-12 col-lg-6 col-sm-12" style="text-align: center">
+            <label class="form-label">Last Name :</label>
+        </div>
+        <div class="col-md-12 col-lg-6 col-sm-12" style="text-align: center">
+            <h6>@Model.CustomerLastName</h6>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-md-12 col-lg-6 col-sm-12" style="text-align: center">
+            <label class="form-label">Email Address :</label>
+        </div>
+        <div class="col-md-12 col-lg-6 col-sm-12" style="text-align: center">
+            <h6>@Model.CustomerEmail</h6>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-md-12 col-lg-6 col-sm-12" style="text-align: center">
+            <label class="form-label">Address :</label>
+        </div>
+        <div class="col-md-12 col-lg-6 col-sm-12" style="text-align: center">
+            <h6>  @Model.CustomerAddress</h6>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-md-12 col-lg-6 col-sm-12" style="text-align: center">
+            <label class="form-label">City :</label>
+        </div>
+        <div class="col-md-12 col-lg-6 col-sm-12" style="text-align: center">
+            <h6>@Model.CustomerCity</h6>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-md-12 col-lg-6 col-sm-12" style="text-align: center">
+            <label class="form-label">State :</label>
+        </div>
+        <div class="col-md-12 col-lg-6 col-sm-12" style="text-align: center">
+            <h6>@Model.CustomerState</h6>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-md-12 col-lg-6 col-sm-12" style="text-align: center">
+            <label class="form-label">Pin Code :</label>
+        </div>
+        <div class="col-md-12 col-lg-6 col-sm-12" style="text-align: center">
+            <h6>@Model.CustomerZip</h6>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-md-12 col-lg-6 col-sm-12" style="text-align: center">
+            <label class="form-label">Mobile Number :</label>
+        </div>
+        <div class="col-md-12 col-lg-6 col-sm-12" style="text-align: center">
+            <h6>@Model.CustomerPhone</h6>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-md-12 col-lg-12 col-sm-12" style="text-align: center;">
+            <a href="@Url.Action("UpdateProfile","Customer", new { id = id })" class="btn btn-warning h6" style="text-decoration:none">Update Details</a>
+
+        </div>
+    </div>
+
+</div>
+

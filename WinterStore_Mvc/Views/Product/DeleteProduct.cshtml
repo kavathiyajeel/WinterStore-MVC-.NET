@@ -1,0 +1,78 @@
+﻿@model WinterStore_Mvc.Models.Product
+@{
+    ViewBag.Title = "DeleteProduct";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="text-center m-3"><i class="bi bi-trash mr-2"></i>Delete Product</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<hr />
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="container bg-dark text-light py-3 m-2" style="border-radius:5px">
+
+        <div class="row m-1">
+            <div class="col">
+                @Html.DisplayNameFor(model => model.pname)
+            </div>
+
+            <div class="col">
+                @Html.DisplayFor(model => model.pname)
+            </div>
+        </div>
+        <div class="row m-1">
+            <div class="col">
+                @Html.DisplayNameFor(model => model.pbrand)
+            </div>
+
+            <div class="col">
+                @Html.DisplayFor(model => model.pbrand)
+            </div>
+
+        </div>
+        <div class="row m-1">
+            <div class="col">
+                @Html.DisplayNameFor(model => model.pcategory)
+            </div>
+
+            <div class="col">
+                @Html.DisplayFor(model => model.pcategory)
+            </div>
+        </div>
+        <div class="row m-1">
+
+            <div class="col">
+                @Html.DisplayNameFor(model => model.isActive)
+            </div>
+
+            <div class="col">
+                @Html.DisplayFor(model => model.isActive)
+            </div>
+        </div>
+        <div class="form-actions no-color">
+            <div class="col-md-offset-5 col-md-12" style="text-align:center">
+                <input type="submit" value="Delete" class="btn btn-danger" />
+                </div>
+            </div>
+        </div>
+}
+
+    @if (TempData["msg"] != null)
+    {
+        <script>
+ alert('@TempData["msg"].ToString();'); window.location.href = "@Url.Action("Index","Product")";
+        </script>
+    }
+
+
+
+
+
+
+
+
+<div>
+    <a class="btn btn-outline-danger mt-2" href="@Url.Action( "Index","Product")">Back To List</a>
+</div>

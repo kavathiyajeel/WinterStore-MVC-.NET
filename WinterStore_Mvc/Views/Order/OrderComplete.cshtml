@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "OrderComplete";
+    Layout = "~/Views/Shared/_Layout_User.cshtml";
+}
+
+
+
+<div class="container-fluid mt-2 mb-2 shadow-lg bg-white rounded" style="width: 100%; border: 2px solid black;">
+    <table class="table table-borderless" style="color: black;">
+        <tr class="row">
+            <td class="col text-center">
+                <img ID="Image1" ImageAlign="Middle" Width="40%" CssClass="figure-img" ImageUrl="~/Images/oc.gif" runat="server" />
+                <img src="~/Content/Images/oc.gif" class="card-img-top" style="width:auto;align-items:center" />
+            </td>
+        </tr>
+        <tr class="row">
+            <td class="col text-center">
+                <label style="color:green;font-size:x-large">Order successfully placed with Order ID : </label>
+            </td>
+        </tr>
+        <tr class="row">
+            <td class="col text-center">
+                @Html.ActionLink("Continue Shopping", "Index", "UserHome", new { area = "" }, new { @class = "btn btn-success", @style = "text-decoration: none;" })
+            </td>
+        </tr>
+    </table>
+
+</div>

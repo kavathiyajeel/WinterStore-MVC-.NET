@@ -1,0 +1,107 @@
+﻿@using WinterStore_Mvc.Models
+@model WinterStore_Mvc.Models.CheckoutViewModel
+
+@{
+    ViewBag.Title = "Checkout";
+    Layout = "~/Views/Shared/_Layout_User.cshtml";
+}
+
+<h2 class="text-center mt-3 mb-3">Checkout Page</h2>
+
+@using (Html.BeginForm("BuyNow", "Order"))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="container-fluid mt-2 mb-2 shadow-lg bg-white rounded" style="width: 80%; border: 1px solid black; box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2); border-radius: 5px;">
+        <table class="table table-borderless" style="color: black;">
+            <tr class="row">
+                <td class="col">
+                    <h3 class="text-center">Shipping details</h3>
+                </td>
+            </tr>
+           
+            <tr class="row">
+                <td class="col" style="text-align: center">
+                    <label class="form-label" runat="server">Name :</label>
+                </td>
+                <td class="col">
+                    @Html.TextBoxFor(m => m.Customer.CustomerFirstName, new { @class = "form-control", })
+                    @Html.TextBoxFor(m => m.Customer.CustomerID, new { @class = "form-control",@type="hidden" })
+                </td>
+            </tr>
+
+            <tr class="row">
+                <td class="col " style="text-align: center">
+                    <label class="form-label" runat="server">Address :</label>
+                </td>
+                <td class="col " style="text-align: center">
+                    @Html.TextBoxFor(m => m.Customer.CustomerAddress, new { @class = "form-control", })
+
+                </td>
+            </tr>
+           
+            <tr class="row">
+                <td class="col " style="text-align: center">
+                    <label class="form-label" runat="server">City :</label>
+                </td>
+                <td class="col" style="text-align: center">
+                    @Html.TextBoxFor(m => m.Customer.CustomerCity, new { @class = "form-control", })
+
+                </td>
+            </tr>
+          
+            <tr class="row">
+                <td class="col " style="text-align: center">
+                    <label class="form-label" runat="server">State :</label>
+                </td>
+                <td class="col" style="text-align: center">
+                    @Html.TextBoxFor(m => m.Customer.CustomerState, new { @class = "form-control", })
+
+                </td>
+
+            </tr>
+          
+            <tr class="row">
+                <td class="col" style="text-align: center">
+                    <label class="form-label" runat="server">Pincode :</label>
+                </td>
+                <td class="col" style="text-align: center">
+                    @Html.TextBoxFor(m => m.Customer.CustomerZip, new { @class = "form-control", })
+
+                </td>
+            </tr>
+           
+            <tr class="row">
+                <td class="col " style="text-align: center">
+                    <label class="form-label" runat="server">Amount :</label>
+                </td>
+                <td class="col">
+                    @Html.TextBoxFor(m => m.Product.pprice, new { @class = "form-control", })
+
+                </td>
+            </tr>
+            
+            <tr class="row">
+                <td class="col " style="text-align: center">
+                    <label class="form-label" runat="server">Payment Method :</label>
+                </td>
+                <td class="col" style="text-align: center">
+                    @Html.DropDownListFor(m => m.paymentMethod, new SelectList(Enum.GetValues(typeof(CheckoutViewModel.PaymentMethod))), "Select Payment Method", new {@class="form-control"});
+
+</td>
+            </tr>
+
+          
+            <tr class="row">
+                <td class="col " style="text-align: center">
+                </td>
+                <td class="col " style="text-align: center">
+                    <button type="submit" class="btn btn-success">Proceed</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+}
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>

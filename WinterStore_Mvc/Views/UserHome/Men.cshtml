@@ -1,0 +1,44 @@
+﻿@using WinterStore_Mvc.Models
+@model IEnumerable<Product>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout_User.cshtml";
+    int id = (int)Session["userid"];
+}
+
+<div class="main row">
+
+    @foreach (Product item in Model)
+    {
+        <div class="container-fluid mt-2 mb-4 col-4 " style="margin: auto; ">
+
+            <div class="card H-100" style="border:solid black;color:black; height:480px">
+          <a href="@Url.Action("ProductDetails", "Product", new {@id=item.pid})" style="text-decoration:none">
+              <div class="row mt-2" style="margin:auto">
+                <img src="@item.pimage" class="card-img-top mt-4 m-auto" style="height:300px;width:250px;margin:auto" />
+
+              </div>
+          </a>
+
+                <label class="control-label" style="margin: 0px 10px 0px 10px;text-align:center">@item.pname</label>
+                <div class="col" style="text-align:center">
+                    <label class="control-label text-muted mr-2" style="font-size:medium;"><s>₹@item.pmrp</s></label>
+                    <label class="control-label " style="font-size:medium;text-align:center;margin-bottom:auto">₹@item.pprice</label>
+                </div>
+                <a class="btn btn-dark w-50 m-auto" href="@Url.Action("AddtoCart", "Cart", new {@cid=id,@pid=item.pid})"><i class="bi bi-cart2 mr-2"></i>Add to Cart</a>
+
+                <br />
+            </div>
+
+        </div>
+
+    }
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
+
+<script src="js/main.js"></script>

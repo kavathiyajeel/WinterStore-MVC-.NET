@@ -1,0 +1,78 @@
+﻿@model WinterStore_Mvc.Models.Issue
+@{
+    ViewBag.Title = "Contact";
+    Layout = "~/Views/Shared/_Layout_User.cshtml";
+}
+<div class="container" style="margin: auto;border:2px solid black;border-radius:15px ">
+    <h4 class="text-center mt-4"><i class="bi bi-person-lines-fill"></i>Contact Us</h4>
+
+    <section class="py-2 px-2">
+        <div class="col-md-12 mt-3">
+            <div class="container m-auto">
+
+                @using (Html.BeginForm("AddContactUs", "Issue"))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="row m-3"  >
+                        <div class="col-md-4" style="text-align:center">
+                            <label class="form-label" runat="server">Full Name :</label>
+                        </div>
+                        <div class="col-md-8" style="text-align: center">
+                            @Html.TextBoxFor((model) => model.UserName, new { @type = "text", @class = "form-control", @placeholder = "Nirav" })
+                          
+                        </div>
+
+                    </div>
+                    <div class="row m-3">
+                        <div class="col-md-4" style="text-align: center">
+                            <label class="form-label" runat="server">Email Address :</label>
+                        </div>
+                        <div class="col-md-8" style="text-align: center">
+                            @Html.TextBoxFor((model) => model.Email, new { @type = "email", @class = "form-control", @placeholder = "npatel046@rku.ac.in" })
+                          
+                        </div>
+
+                    </div>
+                    <div class="row m-3">
+                        <div class="col-md-4" style="text-align: center">
+                            <label class="form-label" runat="server">Message :</label>
+                        </div>
+                        <div class="col-md-8" style="text-align: center">
+                           @Html.TextBoxFor((model) => model.Message, new { @type = "text", @class = "form-control", @placeholder = "ex : Issue with delivery" })
+                            
+                        </div>
+
+                    </div>
+
+                    <div class="row m-3">
+                        <div class="col-md-4" style="text-align: center">
+                            <label class="form-label" runat="server">Mobile No :</label>
+                        </div>
+                        <div class="col-md-8" style="text-align: center">
+                            @Html.TextBoxFor((model) => model.Mobile, new { @type = "text", @class = "form-control", @placeholder = "1478523690" })
+                            
+                        </div>
+
+                    </div>
+
+
+                    <div class="row">
+
+                        <div class="col" style="text-align: center">
+                            <button type="submit" class="btn btn-success">Submit</button>
+                        </div>
+                    </div>
+                }
+            </div>
+
+
+        </div>
+    </section>
+</div>
+
+@if (TempData["msg"] != null)
+{
+    <script>
+ alert('@TempData["msg"].ToString();'); window.location.href = "@Url.Action("Contact","Home")";
+    </script>
+}
